@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
-using System.ServiceModel;
-using System.Text;
+﻿using System.Collections.Generic;
 using SimpleApiReturnTenisPlaysStats.Models.Implementations;
 using SimpleApiReturnTenisPlaysStats.Repository.Contracts;
 using SimpleApiReturnTenisPlaysStats.Repository.Implementations;
@@ -15,14 +7,18 @@ namespace SimpleApiReturnTenisPlaysStats
 {
     public class TenisPlaysStatsService : ITenisPlayerStatsService
     {
+        #region -- Properties --
         private ITenisPlaysStatsRepository _tenisPlaysStatsRepository;
+        #endregion
 
+        #region -- Constructor --
         public TenisPlaysStatsService()
         {
             _tenisPlaysStatsRepository = new TenisPlaysStatsRepository();
         }
-               
+        #endregion
 
+        #region -- Methods --
         public void Delete(int id)
         {
             _tenisPlaysStatsRepository.Delete(id);
@@ -37,5 +33,6 @@ namespace SimpleApiReturnTenisPlaysStats
         {            
             return _tenisPlaysStatsRepository.GetPlayers();
         }
+        #endregion
     }
 }
