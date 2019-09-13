@@ -75,7 +75,7 @@ namespace SimpleApiReturnTenisPlaysStats.Repository.Implementations
                 }
 
                 throw new WebFaultException<string>("Une erreur s'est produite", 
-                    HttpStatusCode.BadRequest);
+                    HttpStatusCode.NotFound);
             }
             catch (Exception exception)
             {
